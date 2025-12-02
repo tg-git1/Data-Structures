@@ -10,7 +10,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/lesson", methods=["POST"])
-def start_lesson():
+def lesson():
     topic = request.json["topic"]
 
     if topic == "stack":
@@ -20,4 +20,12 @@ def start_lesson():
             "analogy": "A stack of books, all placed one above the other. You first remove the last book you placed",
             "operations": ["push", "pop"],
             "data": stack
+        })
+    if topic == "queue":
+        return jsonify({
+            "title": "Queue",
+            "definition": "A Queue is a data structure where the first item added is the first one removed. (FIFO)",
+            "analogy": "A queue at a ticket counter — the first person in line is served first.",
+            "operations": ["enqueue", "dequeue"],
+            "data": queue
         })
