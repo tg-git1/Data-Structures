@@ -23,3 +23,29 @@ function lesson(topic) {
                 <button onclick="enqueue()">ENQUEUE</button>
                 <button onclick="dequeue()">DEQUEUE</button>`;
         }
+        html += `
+            </div>
+            <div id="display">Current: [ ${data.data} ]</div>
+        `;
+
+        document.getElementById("content").innerHTML = html;
+    });
+}
+function push() {
+    let value = document.getElementById("stack-ele").value;
+    fetch("/push", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({value: value})
+    })
+    .then(res => res.json())
+    .then(data => display(data.data));
+}
+
+function pop() {
+    fetch("/pop", {
+        method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => display(data.data));
+}
