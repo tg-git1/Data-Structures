@@ -51,3 +51,10 @@ def dequeue():
     if queue:
         queue.pop(0)
     return jsonify({"data": queue})
+
+if __name__ == "__main__":
+    print("="*50)
+    print("Server is starting...")
+    print(f"Open http://127.0.0.1:5000 in your web browser.")
+    print("="*50)
+    app.run(debug=True)
