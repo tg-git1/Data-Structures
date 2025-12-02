@@ -23,11 +23,23 @@ Javascript
 
 ## Page Styling
 CSS
+* Layout
+* Button styling
+* Background color
+* Center alignment
 
 # Running the Code
+* Clone the repository
+  ```bash
+  git clone "https://github.com/tg-git1/Data-Structures"
+  ```
 * Ensure Python is installed
   ```bash
   python --version
+  ```
+* Navigate to the directory
+  ```bash
+  cd "Data-Structures"
   ```
 * Create a virtual environment
   ```bash
@@ -39,7 +51,7 @@ CSS
   ```
 * Run the app
   ```bash
-  pip install flask
+  python app.py
   ```
 * Open in browser
   
