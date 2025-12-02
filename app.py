@@ -27,3 +27,27 @@ def lesson():
             "analogy": "A queue at a ticket counter — the first person in line is served first.",
             "data": queue
         })
+
+@app.route("/push", methods=["POST"])
+def push():
+    value = request.json["value"]
+    stack.append(value)
+    return jsonify({"data": stack})
+
+@app.route("/pop", methods=["POST"])
+def pop():
+    if stack:
+        stack.pop()
+    return jsonify({"data": stack})
+
+@app.route("/enqueue", methods=["POST"])
+def enqueue():
+    value = request.json["value"]
+    queue.append(value)
+    return jsonify({"data": queue})
+
+@app.route("/dequeue", methods=["POST"])
+def dequeue():
+    if queue:
+        queue.pop(0)
+    return jsonify({"data": queue})
