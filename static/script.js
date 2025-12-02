@@ -49,3 +49,25 @@ function pop() {
     .then(res => res.json())
     .then(data => display(data.data));
 }
+function enqueue() {
+    let value = document.getElementById("queue-ele").value;
+    fetch("/enqueue", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({value: value})
+    })
+    .then(res => res.json())
+    .then(data => display(data.data));
+}
+
+function dequeue() {
+    fetch("/dequeue", {
+        method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => display(data.data));
+}
+
+function display(struct) {
+    document.getElementById("display").innerHTML = `Current: [ ${struct} ]`;
+}
